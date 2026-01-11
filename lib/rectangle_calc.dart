@@ -8,16 +8,16 @@ class RectangleCalc extends StatefulWidget {
 }
 
 class RectangleCalcState extends State<RectangleCalc> {
-  int _width = 0;
-  int _length = 0;
-  int _area = 0;
+  double _width = 0;
+  double _length = 0;
+  double _area = 0;
 
   TextEditingController _widthCtrl = TextEditingController();
   TextEditingController _lengthCtrl = TextEditingController();
 
   void _calcRectangle() {
-    _width = int.tryParse(_widthCtrl.text) ?? 0;
-    _length = int.tryParse(_lengthCtrl.text) ?? 0;
+    _width = double.tryParse(_widthCtrl.text) ?? 0;
+    _length = double.tryParse(_lengthCtrl.text) ?? 0;
 
     setState(() {
       _area = _width * _length;
@@ -32,58 +32,75 @@ class RectangleCalcState extends State<RectangleCalc> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("พื้นที่สี่เหลี่ยม"), centerTitle: true),
+      appBar: AppBar(title: Text("พื้นที่สี่เหลี่ยม")),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(15),
+        padding: EdgeInsets.all(30),
 
         child: Column(
           children: [
             Container(
               width: double.infinity,
-              padding: EdgeInsets.all(15),
+              padding: EdgeInsets.all(30),
               decoration: BoxDecoration(
                 color: Colors.blue.shade100,
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Column(
                 children: [
-                  Text("พื้นที่ทั้งหมด", style: TextStyle(color: Colors.black)),
+                  Text(
+                      "พื้นที่ทั้งหมด",
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.black)
+                  ),
 
-                  Text("$_area", style: TextStyle(
+                  SizedBox(height: 25),
+
+                  Text(
+                      _area.toStringAsFixed(2),
+                    style: TextStyle(
                       fontSize: 56,
                       fontWeight: FontWeight.bold,
                       color: Colors.blue.shade900,
                     ),
                   ),
 
-                  Text("ตารางเมตร", style: TextStyle(color: Colors.black)),
+                  SizedBox(height: 25),
+
+                  Text("ตารางเมตร",
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.black)
+                  ),
                 ],
               ),
             ),
 
-            SizedBox(height: 15),
+            SizedBox(height: 25),
 
             TextField(
               controller: _widthCtrl,
               keyboardType: TextInputType.number,
+              style: TextStyle(fontSize: 24),
               decoration: _textFieldStyle.copyWith(
                 label: Text("ความกว้าง (เมตร)"),
                 prefixIcon: Icon(Icons.swap_horiz, color: Colors.black),
               ),
             ),
 
-            SizedBox(height: 15),
+            SizedBox(height: 25),
 
             TextField(
               controller: _lengthCtrl,
               keyboardType: TextInputType.number,
+              style: TextStyle(fontSize: 24),
               decoration: _textFieldStyle.copyWith(
                 label: Text("ความยาว (เมตร)"),
                 prefixIcon: Icon(Icons.swap_vert, color: Colors.black),
               ),
             ),
 
-            SizedBox(height: 15),
+            SizedBox(height: 25),
 
             SizedBox(
               width: double.infinity,
@@ -97,12 +114,20 @@ class RectangleCalcState extends State<RectangleCalc> {
                   "คำนวณ",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 18,
+                    fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
             ),
+
+            SizedBox(height: 20),
+
+            Text("สูครการหาพื้นที่สีเหลี่ยมผืนผ้า คือ ความกว้าง x ความยาว"),
+
+            SizedBox(height: 10),
+
+            Text("สูครการหาพื้นที่สีเหลี่ยมจตุรัส คือ ความยาวด้าน x ความยาวด้าน"),
           ],
         ),
       ),

@@ -17,8 +17,19 @@ class MyApp extends StatelessWidget {
       title: 'Flutter',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.black,
+          foregroundColor: Colors.white,
+          centerTitle: true,
+        ),
+
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.white,
+        ),
       ),
+
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(),
@@ -42,21 +53,21 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
 
           children: [
-            SizedBox(height: 15),
+            SizedBox(height: 30),
 
             Text(
               "โปรแกรมคำนวณ",
               style: TextStyle(
-                fontSize: 32,
+                fontSize: 42,
                 fontWeight: FontWeight.bold,
               ),
             ),
 
-            SizedBox(height: 5),
+            SizedBox(height: 10),
 
             Text(
               "กรุณาเลือกรายการที่ต้องการ",
-              style: TextStyle(fontSize: 16, color: Colors.grey.shade700),
+              style: TextStyle(fontSize: 18, color: Colors.grey.shade700),
             ),
 
             SizedBox(height: 30),
@@ -114,7 +125,7 @@ class HomePage extends StatelessWidget {
                     SizedBox(width: 15),
 
                     Text(
-                      "แปลงลิตรเป็นแกลลอน",
+                      "แปลงลิตรเป็นแกลลอน (US)",
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                     ),
                   ],

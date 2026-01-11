@@ -32,15 +32,15 @@ class VolumeCalcState extends State<VolumeCalc> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("ปริมาตร"), centerTitle: true),
+      appBar: AppBar(title: const Text("ลิตรเป็นแกลลอน (US)")),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(15),
+        padding: EdgeInsets.all(30),
 
         child: Column(
           children: [
             Container(
               width: double.infinity,
-              padding: EdgeInsets.all(25),
+              padding: EdgeInsets.all(30),
               decoration: BoxDecoration(
                 color: Colors.green.shade100,
                 borderRadius: BorderRadius.circular(15),
@@ -49,37 +49,47 @@ class VolumeCalcState extends State<VolumeCalc> {
               child: Column(
                 children: [
                   Text(
-                    "ปริมาตรแกลลอน",
-                    style: TextStyle(color: Colors.black54),
+                    "ปริมาตรแกลลอน (US)",
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black54),
                   ),
 
-                  SizedBox(height: 15),
+                  SizedBox(height: 25),
 
                   Text(
-                    _gallon.toStringAsFixed(4),
+                    _gallon.toStringAsFixed(2),
                     style: TextStyle(
                       fontSize: 56,
                       fontWeight: FontWeight.bold,
                       color: Colors.green.shade900,
                     ),
                   ),
-                  Text("แกลลอน", style: TextStyle(color: Colors.black54)),
+
+                  SizedBox(height: 25),
+
+                  Text("แกลลอน (US)",
+                      style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black54)
+                  ),
                 ],
               ),
             ),
 
-            SizedBox(height: 15),
+            SizedBox(height: 25),
 
             TextField(
               controller: _litterCtrl,
               keyboardType: TextInputType.number,
+              style: TextStyle(fontSize: 24),
               decoration: _textFieldStyle.copyWith(
                 label: Text("ปริมาตรลิตร"),
                 prefixIcon: Icon(Icons.water_drop, color: Colors.black),
               ),
             ),
 
-            SizedBox(height: 15),
+            SizedBox(height: 25),
 
             SizedBox(
               width: double.infinity,
@@ -93,12 +103,16 @@ class VolumeCalcState extends State<VolumeCalc> {
                   "คำนวณ",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 18,
+                    fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
             ),
+
+            SizedBox(height: 15),
+
+            Text("1 แกลลอน (US) = 3.785 ลิตร"),
           ],
         ),
       ),
