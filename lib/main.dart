@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         // colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         scaffoldBackgroundColor: Colors.white,
-        appBarTheme: const AppBarTheme(
+        appBarTheme: AppBarTheme(
           backgroundColor: Colors.black,
           foregroundColor: Colors.white,
           centerTitle: true,
@@ -130,6 +130,34 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
+              ),
+            ),
+
+            Spacer(),
+
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.grey.shade200,
+                borderRadius: BorderRadius.circular(15),
+
+              ),
+              child: Row(
+                children: [
+                  Icon(Icons.calculate, size: 56, color: Colors.black),
+
+                  SizedBox(width: 15),
+
+                  SizedBox(
+                    child: Text(
+                      "แอพสำหรับคำนวณพื้นที่และแปลงหน่วยอย่างง่าย \nใช้งานสะดวก รวดเร็ว",
+                      style: TextStyle(
+                          fontSize: 16
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],

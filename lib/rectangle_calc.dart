@@ -123,7 +123,12 @@ class RectangleCalcState extends State<RectangleCalc> {
 
             SizedBox(height: 20),
 
-            Text("สูครการหาพื้นที่สีเหลี่ยมผืนผ้า คือ ความกว้าง x ความยาว"),
+            Text("สูครการหาพื้นที่สีเหลี่ยมผืนผ้า คือ ความกว้าง x ความยาว",
+            style:
+              TextStyle(
+                fontSize: 16
+              )
+            ),
 
             SizedBox(height: 10),
 

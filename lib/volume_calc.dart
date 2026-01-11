@@ -112,7 +112,12 @@ class VolumeCalcState extends State<VolumeCalc> {
 
             SizedBox(height: 15),
 
-            Text("1 แกลลอน (US) = 3.785 ลิตร"),
+            Text("1 แกลลอน (US) = 3.785 ลิตร",
+            style:
+              TextStyle(
+                fontSize: 16
+              )
+            ),
           ],
         ),
       ),
